@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CrearDivisionRequest;
+use App\Http\Resources\DivisionResource;
 use App\Models\Division;
 use Illuminate\Http\Request;
 
@@ -15,8 +17,7 @@ class DivisionController extends Controller
      */
     public function index()
     {
-        //
-        return Division::all();
+        return DivisionResource::collection(Division::all());
     }
 
     /**
@@ -25,9 +26,9 @@ class DivisionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CrearDivisionRequest $request)
     {
-        //
+        return new DivisionResource(Division::created($request->all()));
     }
 
     /**
