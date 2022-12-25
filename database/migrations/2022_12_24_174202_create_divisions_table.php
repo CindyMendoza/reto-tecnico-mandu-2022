@@ -14,10 +14,14 @@ class CreateDivisionsTable extends Migration
     public function up()
     {
         Schema::create('divisions', function (Blueprint $table) {
-            $table->id('division_id')->autoIncrement()->unique();
+            $table->id()->autoIncrement()->unique();
             $table->timestamps();
+            $table->string('nombre',45)->unique();
             $table->string('supdivision')->nullable();
             $table->integer('subdivision');
+            $table->integer('nivel');
+            $table->integer('cantidad');
+            $table->string('embajador');
         });
     }
 
