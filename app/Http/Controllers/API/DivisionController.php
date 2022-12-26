@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ActualizarDivisionRequest;
 use App\Http\Requests\CrearDivisionRequest;
 use App\Http\Resources\DivisionResource;
 use App\Models\Division;
@@ -37,9 +38,9 @@ class DivisionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Division $division)
     {
-        //
+        return new DivisionResource($division);
     }
 
     /**
@@ -49,9 +50,10 @@ class DivisionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(ActualizarDivisionRequest $request, Division $division)
+    {   
+        $division->update($request->all());
+        return new DivisionResource($division);
     }
 
     /**
