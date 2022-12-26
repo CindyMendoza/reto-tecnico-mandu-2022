@@ -27,8 +27,8 @@ class DivisionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CrearDivisionRequest $request)
-    {
-        return new DivisionResource(Division::created($request->all()));
+    {   
+        return new DivisionResource(Division::create($request->all()));
     }
 
     /**

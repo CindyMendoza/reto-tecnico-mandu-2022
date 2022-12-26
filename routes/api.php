@@ -18,5 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('division',[DivisionController::class,'index']);
-Route::post('crear',[DivisionController::class,'store']);
+Route::apiResource('division',DivisionController::class);

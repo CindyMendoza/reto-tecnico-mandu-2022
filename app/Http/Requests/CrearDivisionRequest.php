@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
 class CrearDivisionRequest extends FormRequest
 {
     /**
@@ -13,7 +12,7 @@ class CrearDivisionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
